@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styl.css">
+	<title>Miernik jakości hasła</title>
+  <script type="text/javascript">
+    function x() {
+      var pass = document.getElementById("password").value;
+      var result = document.getElementById("result");
+      console.log(pass);
+
+      
+      const reg = new RegExp("[0-9]*","g") ;
+
+      if (pass=="") {
+        result.innerHTML = "WPISZ HASŁO!";
+        result.style.color= "red";
+      }else if (pass.length>=7 && reg.test(pass)==true) {
+        result.innerHTML = "DOBRE";
+        result.style.color= "green";
+      }else if (pass.length<=6 && pass.length>=4 && reg.test(pass)==true){
+        result.innerHTML = "ŚREDNIE";
+        result.style.color= "blue";
+      }else{
+        result.innerHTML = "SŁABE";
+        result.style.color= "yellow";
+      }
+    }
+  </script>
+</head>
+<body>
+	<div class="container">
+		<div class="baner">
+      <h1><a href="index.html">Sprawdź swoje hasło</a></h1>
+    </div>
+		<div class="lewy">
+      <h2>Wybierz</h2>
+      <ol>
+        <li><a href="haslo.html">Sprawdź hasło</a></li>
+        <li><a href="zasady.html">Zasady tworzenia hasła</a></li>
+      </ol>
+    </div>
+		<div class="prawy">
+      <p>Twoje hasło: <input type="text" id="password"><button onclick="x()">Sprawdź</button></p>
+      <span id="result"></span>
+    </div>
+		<div class="stopka">
+      <h3>Miernik jakości hasła</h3>
+      <p>Stronę opracował: 002939928192</p>
+    </div>
+	</div>
+	
+	
+</body>
+</html>
